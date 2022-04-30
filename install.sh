@@ -20,6 +20,16 @@ nix-env -iA \
 		nixpkgs.gcc \
 		nixpkgs.direnv
 
+# Add nix config to .zshrc
+tee -a ~/.zshrc <<EOF
+# Nix
+ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+ fi
+# End Nix
+EOF
+
+
 # stow dotfiles
 stow git
 stow nvim
