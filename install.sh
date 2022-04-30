@@ -1,4 +1,4 @@
-[200~# install nix
+Install nix
 curl -L https://nixos.org/nix/install | sh
 
 # source nix
@@ -33,9 +33,12 @@ command -v zsh | sudo tee -a /etc/shells
 sudo chsh -s $(which zsh) $USER
 
 # bundle zsh plugins 
-antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+ antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 
-# install neovim plugins
+# install vim-plug and neovim plugins
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 nvim --headless +PlugInstall +qall
 
 # Use kitty terminal on MacOS
