@@ -33,6 +33,5 @@ jobs:
       run: |
         pipenv install
         pipenv uninstall --all-dev
-        local virtual_env
         virtual_env=$(pipenv --venv)
         echo $virtual_env
